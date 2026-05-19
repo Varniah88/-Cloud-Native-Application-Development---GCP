@@ -9,4 +9,4 @@ steps:
       - 'docker login -u varniah -p $_DOCKER_PASS && docker push varniah/sit737-app:v2'
 
 options:
-  logging: CLOUD_LOGGING_ONLY
+  logging: NONE
