@@ -7,6 +7,10 @@ steps:
     args:
       - '-c'
       - 'docker login -u varniah -p $_DOCKER_PASS && docker push varniah/sit737-app:v2'
-
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['apply', '-f', 'deployment.yaml']
+    env:
+    - 'CLOUDSDK_COMPUTE_ZONE=australia-southeast1-a'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=sit737-cluster'
 options:
   logging: NONE
